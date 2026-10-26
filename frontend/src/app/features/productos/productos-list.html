@@ -1,0 +1,187 @@
+<div class="page-header">
+  <div>
+    <h2>Productos</h2>
+    <p>
+      Administra el catálogo, busca por nombre o código y filtra por categoría.
+      @if (totalItems() > 0) {
+        <strong>{{ totalItems() }}</strong> productos registrados.
+      }
+    </p>
+  </div>
+  <div class="page-header__actions">
+    <a class="button" routerLink="/productos/nuevo">+ Nuevo producto</a>
+  </div>
+</div>
+
+<section class="card">
+  <form class="filters" [formGroup]="filtros">
+    <div class="filters__search">
+      <label class="sr-only" for="search">Buscar productos</label>
+      <input
+        id="search"
+        type="search"
+        class="form-control"
+        formControlName="search"
+        placeholder="Buscar por nombre, código o descripción..."
+      />
+    </div>
+
+    <select class="form-control" formControlName="categoriaId" aria-label="Filtrar por categoría">
+      <option [value]="0">Todas las categorías</option>
+      @for (categoria of categorias(); track categoria.id) {
+        <option [value]="categoria.id">{{ categoria.nombre }}</option>
+      }
+    </select>
+
+    <select class="form-control" formControlName="activo" aria-label="Filtrar por estado">
+      <option value="todos">Todos los estados</option>
+      <option value="activos">Solo activos</option>
+      <option value="inactivos">Solo inactivos</option>
+    </select>
+
+    <button type="button" class="button button--ghost" (click)="limpiarFiltros()">
+      Limpiar
+    </button>
+  </form>
+
+  @if (error()) {
+    <div class="alert alert--error filters__alert" role="alert">{{ error() }}</div>
+  }
+
+  @if (loading()) {
+    <div class="loading-block">
+      <span class="spinner" aria-hidden="true"></span>
+      Cargando productos...
+    </div>
+  } @else if (productos().length === 0) {
+    <div class="empty-state">
+      <strong>No se encontraron productos</strong>
+      Ajusta los filtros o registra un producto nuevo en el catálogo.
+    </div>
+  } @else {
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>
+              <button type="button" (click)="ordenar('nombre')">
+                Producto <span aria-hidden="true">{{ iconoOrden('nombre') }}</span>
+              </button>
+            </th>
+            <th>Categoría</th>
+            <th>
+              <button type="button" (click)="ordenar('precio')">
+                Precio <span aria-hidden="true">{{ iconoOrden('precio') }}</span>
+              </button>
+            </th>
+            <th>
+              <button type="button" (click)="ordenar('stock')">
+                Stock <span aria-hidden="true">{{ iconoOrden('stock') }}</span>
+              </button>
+            </th>
+            <th>Estado</th>
+            <th class="actions-column">Acciones</th>
+          </tr>
+        </thead>
+        <tbody>
+          @for (producto of productos(); track producto.id) {
+            <tr appHighlight="#f8fafc">
+              <td>
+                <span class="table-primary">{{ producto.nombre }}</span>
+                <span class="table-secondary">{{ producto.codigo }}</span>
+              </td>
+              <td>
+                <span class="badge badge--info">{{ producto.categoriaNombre }}</span>
+              </td>
+              <td class="price">{{ producto.precio | currency: 'USD' : 'symbol' : '1.2-2' }}</td>
+              <td>
+                <span class="stock">
+                  {{ producto.stock }}
+                  <span
+                    class="badge"
+                    [class.badge--danger]="producto.stock <= 0"
+                    [class.badge--warning]="producto.stock > 0 && producto.stock <= 5"
+                    [class.badge--success]="producto.stock > 5"
+                  >
+                    {{ producto.stock | stockStatus }}
+                  </span>
+                </span>
+              </td>
+              <td>
+                <span
+                  class="badge"
+                  [class.badge--success]="producto.activo"
+                  [class.badge--danger]="!producto.activo"
+                >
+                  {{ producto.activo ? 'Activo' : 'Inactivo' }}
+                </span>
+              </td>
+              <td>
+                <div class="row-actions">
+                  <a
+                    class="icon-button"
+                    [routerLink]="['/productos', producto.id, 'editar']"
+                    title="Editar producto"
+                    aria-label="Editar producto"
+                  >
+                    ✎
+                  </a>
+                  <button
+                    type="button"
+                    class="icon-button icon-button--danger"
+                    title="Eliminar producto"
+                    aria-label="Eliminar producto"
+                    (click)="eliminar(producto)"
+                  >
+                    🗑
+                  </button>
+                </div>
+              </td>
+            </tr>
+          }
+        </tbody>
+      </table>
+    </div>
+
+    <div class="pagination">
+      <span>
+        Mostrando
+        {{ (page() - 1) * pageSize + 1 }}–{{ page() * pageSize > totalItems() ? totalItems() : page() * pageSize }}
+        de {{ totalItems() }}
+      </span>
+
+      <div class="pagination__pages">
+        <button
+          type="button"
+          class="pagination__page"
+          [disabled]="page() === 1"
+          (click)="irAPagina(page() - 1)"
+          aria-label="Página anterior"
+        >
+          ‹
+        </button>
+
+        @for (pagina of paginas(); track pagina) {
+          <button
+            type="button"
+            class="pagination__page"
+            [class.pagination__page--active]="pagina === page()"
+            (click)="irAPagina(pagina)"
+          >
+            {{ pagina }}
+          </button>
+        }
+
+        <button
+          type="button"
+          class="pagination__page"
+          [disabled]="page() === totalPages()"
+          (click)="irAPagina(page() + 1)"
+          aria-label="Página siguiente"
+        >
+          ›
+        </button>
+      </div>
+    </div>
+  }
+</section>

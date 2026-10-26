@@ -1,0 +1,72 @@
+<div class="layout">
+  <aside class="sidebar" [class.sidebar--open]="menuOpen()">
+    <a class="brand" routerLink="/dashboard" (click)="closeMenu()">
+      <span class="brand__mark">TW</span>
+      <span>
+        <strong>TecWebII</strong>
+        <small>Catálogo de productos</small>
+      </span>
+    </a>
+
+    <nav class="nav" aria-label="Navegación principal">
+      <a class="nav__link" routerLink="/dashboard" routerLinkActive="nav__link--active" (click)="closeMenu()">
+        <span class="nav__icon" aria-hidden="true">▦</span>
+        Dashboard
+      </a>
+      <a class="nav__link" routerLink="/productos" routerLinkActive="nav__link--active" (click)="closeMenu()">
+        <span class="nav__icon" aria-hidden="true">▤</span>
+        Productos
+      </a>
+      <a class="nav__link" routerLink="/categorias" routerLinkActive="nav__link--active" (click)="closeMenu()">
+        <span class="nav__icon" aria-hidden="true">◈</span>
+        Categorías
+      </a>
+    </nav>
+
+    <div class="sidebar__footer">
+      <div class="user-chip">
+        <span class="avatar">{{ iniciales() }}</span>
+        <div class="user-chip__info">
+          <strong>{{ usuario()?.nombreCompleto ?? 'Usuario' }}</strong>
+          <small>{{ usuario()?.rol ?? 'Invitado' }}</small>
+        </div>
+      </div>
+      <button type="button" class="button button--ghost button--block" (click)="logout()">
+        Cerrar sesión
+      </button>
+    </div>
+  </aside>
+
+  @if (menuOpen()) {
+    <button type="button" class="overlay" (click)="closeMenu()" aria-label="Cerrar menú"></button>
+  }
+
+  <div class="main">
+    <header class="topbar">
+      <button type="button" class="menu-toggle" (click)="menuOpen.set(true)" aria-label="Abrir menú">
+        ☰
+      </button>
+      <div class="topbar__title">
+        <span class="eyebrow">Panel administrativo</span>
+        <h1>Gestión de catálogo</h1>
+      </div>
+      <div class="topbar__user">
+        <span class="avatar avatar--sm">{{ iniciales() }}</span>
+        <div>
+          <strong>{{ usuario()?.nombreCompleto ?? 'Usuario' }}</strong>
+          <small>{{ isAdmin() ? 'Administrador' : 'Usuario autenticado' }}</small>
+        </div>
+      </div>
+    </header>
+
+    <main class="page">
+      <router-outlet />
+    </main>
+
+    <footer class="footer">
+      Tecnologías Web II · Angular 22 + .NET 10 Web API
+    </footer>
+  </div>
+
+  <app-toast />
+</div>

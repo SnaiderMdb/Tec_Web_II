@@ -83,6 +83,29 @@ Incluye el login, el registro, el perfil y el CRUD completo de categorías y pro
 Después de ejecutar el login, copie el token en la variable de entorno `token` de la
 colección para autenticar las peticiones protegidas.
 
+## Frontend Angular (rama `Act_05`)
+
+La rama `Act_05` agrega el proyecto `frontend/`, una SPA en **Angular 22** que consume
+esta misma API.
+
+```bash
+cd frontend
+npm install
+npm start
+```
+
+La aplicación queda disponible en `http://localhost:4200` y requiere que el backend esté
+escuchando en `http://localhost:5080`. Credenciales: `admin@tecwebii.com` / `Admin123*`.
+
+El frontend incluye:
+
+- Componentes standalone con lazy loading y rutas protegidas por `authGuard`.
+- Servicios para autenticación, productos, categorías y notificaciones.
+- Interceptor funcional que agrega el token JWT y maneja respuestas `401`.
+- Directiva personalizada `appHighlight` y pipe `stockStatus`.
+- Formularios reactivos con validaciones, dashboard, filtros, ordenamiento y paginación.
+
+
 ## Buenas prácticas aplicadas
 
 - Separación en capas: `models`, `dtos`, `core`, `services` y `controllers`.

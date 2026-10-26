@@ -1,0 +1,91 @@
+<div class="page-header">
+  <div>
+    <h2>Categorías</h2>
+    <p>
+      Organiza el catálogo en categorías. Actualmente hay
+      <strong>{{ categorias().length }}</strong> categorías y
+      <strong>{{ totalProductos() }}</strong> productos asociados.
+    </p>
+  </div>
+  <div class="page-header__actions">
+    <a class="button" routerLink="/categorias/nueva">+ Nueva categoría</a>
+  </div>
+</div>
+
+@if (error()) {
+  <div class="alert alert--error" role="alert">{{ error() }}</div>
+}
+
+<div class="toolbar card">
+  <input
+    type="search"
+    class="form-control"
+    placeholder="Buscar categoría por nombre o descripción..."
+    [value]="filtro()"
+    (input)="actualizarFiltro($event)"
+    aria-label="Buscar categorías"
+  />
+  <span class="toolbar__count">{{ categoriasFiltradas().length }} resultados</span>
+</div>
+
+@if (loading()) {
+  <div class="card loading-block">
+    <span class="spinner" aria-hidden="true"></span>
+    Cargando categorías...
+  </div>
+} @else if (categoriasFiltradas().length === 0) {
+  <div class="card empty-state">
+    <strong>No hay categorías para mostrar</strong>
+    Crea una categoría nueva o ajusta el término de búsqueda.
+  </div>
+} @else {
+  <div class="category-grid">
+    @for (categoria of categoriasFiltradas(); track categoria.id) {
+      <article class="category-card card" appHighlight="#f8fafc">
+        <header class="category-card__header">
+          <span class="category-card__icon" aria-hidden="true">◈</span>
+          <span
+            class="badge"
+            [class.badge--success]="categoria.activo"
+            [class.badge--danger]="!categoria.activo"
+          >
+            {{ categoria.activo ? 'Activa' : 'Inactiva' }}
+          </span>
+        </header>
+
+        <h3>{{ categoria.nombre }}</h3>
+        <p>{{ categoria.descripcion || 'Sin descripción registrada.' }}</p>
+
+        <div class="category-card__meta">
+          <div>
+            <strong>{{ categoria.cantidadProductos }}</strong>
+            <span>Productos</span>
+          </div>
+          <div>
+            <strong>{{ categoria.fechaCreacion | date: 'dd/MM/yyyy' }}</strong>
+            <span>Creación</span>
+          </div>
+        </div>
+
+        <footer class="category-card__actions">
+          <a class="button button--light button--sm" [routerLink]="['/categorias', categoria.id, 'editar']">
+            Editar
+          </a>
+          <button
+            type="button"
+            class="button button--danger button--sm"
+            (click)="eliminar(categoria)"
+            [disabled]="categoria.cantidadProductos > 0"
+            [title]="
+              categoria.cantidadProductos > 0
+                ? 'No se puede eliminar: tiene productos asociados'
+                : 'Eliminar categoría'
+            "
+          >
+            Eliminar
+          </button>
+        </footer>
+      </article>
+    }
+  </div>
+}

@@ -1,0 +1,169 @@
+<div class="page-header">
+  <div>
+    <h2>Resumen general</h2>
+    <p>Estado del catálogo de productos y categorías registrados en la API.</p>
+  </div>
+  <div class="page-header__actions">
+    <button type="button" class="button button--light" (click)="reload()" [disabled]="loading()">
+      Actualizar
+    </button>
+    <a class="button" routerLink="/productos/nuevo">+ Nuevo producto</a>
+  </div>
+</div>
+
+@if (error()) {
+  <div class="alert alert--error" role="alert">{{ error() }}</div>
+}
+
+@if (loading()) {
+  <div class="card loading-block">
+    <span class="spinner" aria-hidden="true"></span>
+    Cargando información del catálogo...
+  </div>
+} @else {
+  <section class="stats">
+    <article class="stat-card">
+      <span class="stat-card__icon stat-card__icon--indigo" aria-hidden="true">▤</span>
+      <div>
+        <small>Productos registrados</small>
+        <strong>{{ totalProductos() }}</strong>
+        <span>{{ productosActivos() }} activos</span>
+      </div>
+    </article>
+
+    <article class="stat-card">
+      <span class="stat-card__icon stat-card__icon--emerald" aria-hidden="true">◈</span>
+      <div>
+        <small>Categorías</small>
+        <strong>{{ categorias().length }}</strong>
+        <span>{{ categoriasActivas() }} activas</span>
+      </div>
+    </article>
+
+    <article class="stat-card">
+      <span class="stat-card__icon stat-card__icon--amber" aria-hidden="true">!</span>
+      <div>
+        <small>Stock bajo</small>
+        <strong>{{ productosStockBajo() }}</strong>
+        <span>Productos con 5 unidades o menos</span>
+      </div>
+    </article>
+
+    <article class="stat-card">
+      <span class="stat-card__icon stat-card__icon--sky" aria-hidden="true">$</span>
+      <div>
+        <small>Valor del inventario</small>
+        <strong>{{ valorInventario() | currency: 'USD' : 'symbol' : '1.0-0' }}</strong>
+        <span>Precio × stock disponible</span>
+      </div>
+    </article>
+  </section>
+
+  <div class="dashboard-grid">
+    <section class="card">
+      <header class="card__header">
+        <div>
+          <h3>Productos recientes</h3>
+          <p>Últimos productos agregados al catálogo.</p>
+        </div>
+        <a class="button button--ghost button--sm" routerLink="/productos">Ver todos</a>
+      </header>
+
+      @if (ultimosProductos().length === 0) {
+        <div class="empty-state">
+          <strong>Sin productos todavía</strong>
+          Registra el primer producto para comenzar.
+        </div>
+      } @else {
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Producto</th>
+                <th>Categoría</th>
+                <th>Precio</th>
+                <th>Stock</th>
+                <th>Registro</th>
+              </tr>
+            </thead>
+            <tbody>
+              @for (producto of ultimosProductos(); track producto.id) {
+                <tr>
+                  <td>
+                    <span class="table-primary">{{ producto.nombre }}</span>
+                    <span class="table-secondary">{{ producto.codigo }}</span>
+                  </td>
+                  <td>{{ producto.categoriaNombre }}</td>
+                  <td>{{ producto.precio | currency: 'USD' : 'symbol' : '1.2-2' }}</td>
+                  <td>
+                    {{ producto.stock }}
+                    <span
+                      class="badge"
+                      [class.badge--danger]="producto.stock <= 0"
+                      [class.badge--warning]="producto.stock > 0 && producto.stock <= 5"
+                      [class.badge--success]="producto.stock > 5"
+                    >
+                      {{ producto.stock | stockStatus }}
+                    </span>
+                  </td>
+                  <td>{{ producto.fechaCreacion | date: 'dd/MM/yyyy' }}</td>
+                </tr>
+              }
+            </tbody>
+          </table>
+        </div>
+      }
+    </section>
+
+    <section class="card">
+      <header class="card__header">
+        <div>
+          <h3>Distribución por categoría</h3>
+          <p>Participación de cada categoría en el catálogo.</p>
+        </div>
+        <a class="button button--ghost button--sm" routerLink="/categorias">Gestionar</a>
+      </header>
+
+      <div class="card__body">
+        @if (topCategorias().length === 0) {
+          <div class="empty-state">
+            <strong>Sin categorías</strong>
+            Crea una categoría para organizar tus productos.
+          </div>
+        } @else {
+          <div class="category-list">
+            @for (categoria of topCategorias(); track categoria.id) {
+              <div class="category-row">
+                <div class="category-row__header">
+                  <span class="category-row__name">{{ categoria.nombre }}</span>
+                  <span class="text-muted">{{ categoria.cantidadProductos }} productos</span>
+                </div>
+                <div class="progress">
+                  <span class="progress__bar" [style.width.%]="categoria.porcentaje"></span>
+                </div>
+                <span class="category-row__percent">{{ categoria.porcentaje }}%</span>
+              </div>
+            }
+          </div>
+        }
+
+        <div class="quick-actions">
+          <a class="quick-action" routerLink="/productos/nuevo">
+            <span class="quick-action__icon">+</span>
+            <span>
+              <strong>Nuevo producto</strong>
+              <small>Agregar al catálogo</small>
+            </span>
+          </a>
+          <a class="quick-action" routerLink="/categorias/nueva">
+            <span class="quick-action__icon">◈</span>
+            <span>
+              <strong>Nueva categoría</strong>
+              <small>Organizar productos</small>
+            </span>
+          </a>
+        </div>
+      </div>
+    </section>
+  </div>
+}

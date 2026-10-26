@@ -1,0 +1,93 @@
+<div class="page-header">
+  <div>
+    <h2>{{ editando() ? 'Editar categoría' : 'Nueva categoría' }}</h2>
+    <p>
+      {{ editando()
+        ? 'Modifica el nombre, la descripción o el estado de la categoría.'
+        : 'Agrega una categoría para organizar los productos del catálogo.' }}
+    </p>
+  </div>
+  <div class="page-header__actions">
+    <a class="button button--ghost" routerLink="/categorias">Volver al listado</a>
+  </div>
+</div>
+
+@if (error()) {
+  <div class="alert alert--error" role="alert">{{ error() }}</div>
+}
+
+@if (loading()) {
+  <div class="card loading-block">
+    <span class="spinner" aria-hidden="true"></span>
+    Cargando categoría...
+  </div>
+} @else {
+  <div class="form-layout">
+    <form class="card" [formGroup]="form" (ngSubmit)="guardar()" novalidate>
+      <header class="card__header">
+        <div>
+          <h3>Datos de la categoría</h3>
+          <p>El nombre debe ser único dentro del catálogo.</p>
+        </div>
+      </header>
+
+      <div class="card__body">
+        <div class="field">
+          <label for="nombre">Nombre de la categoría *</label>
+          <input id="nombre" type="text" formControlName="nombre" placeholder="Ej. Laptops" />
+          @if (form.controls.nombre.touched && form.controls.nombre.invalid) {
+            <span class="field__error">Ingrese un nombre entre 3 y 80 caracteres.</span>
+          }
+        </div>
+
+        <div class="field">
+          <label for="descripcion">Descripción</label>
+          <textarea
+            id="descripcion"
+            formControlName="descripcion"
+            placeholder="Describa el tipo de productos que pertenecen a esta categoría..."
+          ></textarea>
+          @if (form.controls.descripcion.touched && form.controls.descripcion.invalid) {
+            <span class="field__error">La descripción no puede superar los 250 caracteres.</span>
+          }
+          <small>Máximo 250 caracteres.</small>
+        </div>
+
+        <div class="field">
+          <div class="checkbox-field">
+            <input id="activo" type="checkbox" formControlName="activo" />
+            <label for="activo">Categoría activa</label>
+          </div>
+        </div>
+
+        <div class="form-actions">
+          <a class="button button--ghost" routerLink="/categorias">Cancelar</a>
+          <button type="submit" class="button" [disabled]="guardando()">
+            @if (guardando()) {
+              <span class="spinner" aria-hidden="true"></span>
+              Guardando...
+            } @else {
+              {{ editando() ? 'Guardar cambios' : 'Crear categoría' }}
+            }
+          </button>
+        </div>
+      </div>
+    </form>
+
+    <aside class="card help-card">
+      <div class="card__body">
+        <h3>Consideraciones</h3>
+        <ul>
+          <li>No se puede eliminar una categoría con productos asociados.</li>
+          <li>Las categorías inactivas no se muestran al crear productos nuevos.</li>
+          <li>El nombre se valida sin distinguir mayúsculas y minúsculas.</li>
+        </ul>
+        <div class="help-note">
+          <strong>Relación 1:N</strong>
+          Cada categoría puede agrupar muchos productos mediante la clave foránea
+          <code>categoriaId</code>.
+        </div>
+      </div>
+    </aside>
+  </div>
+}

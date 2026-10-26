@@ -1,0 +1,22 @@
+:host {
+  display: block;
+}
+
+.auth-copy h1 {
+  text-wrap: balance;
+}
+
+.auth-card {
+  animation: rise 0.35s ease-out both;
+}
+
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(0.8rem);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

@@ -1,0 +1,55 @@
+.form-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 18rem;
+  gap: 1.25rem;
+  align-items: start;
+}
+
+.help-card {
+  position: sticky;
+  top: 6rem;
+}
+
+.help-card h3 {
+  margin: 0 0 0.75rem;
+  font-size: 0.95rem;
+}
+
+.help-card ul {
+  margin: 0;
+  padding-left: 1.1rem;
+  color: var(--muted);
+  font-size: 0.8rem;
+  line-height: 1.7;
+}
+
+.help-note {
+  margin-top: 1.1rem;
+  padding: 0.8rem;
+  border-radius: 0.7rem;
+  background: var(--primary-soft);
+  color: #3730a3;
+  font-size: 0.76rem;
+  line-height: 1.5;
+}
+
+.help-note strong {
+  display: block;
+  margin-bottom: 0.25rem;
+}
+
+.help-note code {
+  background: rgba(255, 255, 255, 0.7);
+  padding: 0.1rem 0.25rem;
+  border-radius: 0.3rem;
+}
+
+@media (max-width: 1000px) {
+  .form-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .help-card {
+    position: static;
+  }
+}
