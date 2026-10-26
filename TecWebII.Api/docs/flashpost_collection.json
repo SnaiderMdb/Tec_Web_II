@@ -1,0 +1,1754 @@
+{
+  "app": "Flashpost",
+  "id": "a0000000-0000-4000-8000-000000000001",
+  "name": "TecWebII API - Productos y Categorías",
+  "version": "1.0",
+  "type": "collections",
+  "createdTime": "26-Oct-2026 17:00:00",
+  "exportedDate": "26-Oct-2026 17:00:00",
+  "collections": [
+    {
+      "id": "a0000000-0000-4000-8000-000000000001",
+      "parent": "0",
+      "text": "TecWebII API",
+      "createdTime": "26-Oct-2026 17:00:00",
+      "droppable": true,
+      "data": {
+        "treeNodeType": "collection",
+        "variableId": ""
+      },
+      "relativeIndex": 0
+    },
+    {
+      "id": "a0000000-0000-4000-8000-000000000002",
+      "parent": "a0000000-0000-4000-8000-000000000001",
+      "text": "Autenticación",
+      "createdTime": "26-Oct-2026 17:00:00",
+      "droppable": true,
+      "data": {
+        "id": "a0000000-0000-4000-8000-000000000002",
+        "name": "Autenticación",
+        "createdTime": "26-Oct-2026 17:00:00",
+        "data": {},
+        "treeNodeType": "folder"
+      },
+      "relativeIndex": 0
+    },
+    {
+      "id": "a0000000-0000-4000-8000-000000000003",
+      "parent": "a0000000-0000-4000-8000-000000000001",
+      "text": "Categorías",
+      "createdTime": "26-Oct-2026 17:00:00",
+      "droppable": true,
+      "data": {
+        "id": "a0000000-0000-4000-8000-000000000003",
+        "name": "Categorías",
+        "createdTime": "26-Oct-2026 17:00:00",
+        "data": {},
+        "treeNodeType": "folder"
+      },
+      "relativeIndex": 1
+    },
+    {
+      "id": "a0000000-0000-4000-8000-000000000004",
+      "parent": "a0000000-0000-4000-8000-000000000001",
+      "text": "Productos",
+      "createdTime": "26-Oct-2026 17:00:00",
+      "droppable": true,
+      "data": {
+        "id": "a0000000-0000-4000-8000-000000000004",
+        "name": "Productos",
+        "createdTime": "26-Oct-2026 17:00:00",
+        "data": {},
+        "treeNodeType": "folder"
+      },
+      "relativeIndex": 2
+    },
+    {
+      "id": "a0000000-0000-4000-8000-000000000010",
+      "parent": "a0000000-0000-4000-8000-000000000002",
+      "text": "Registrar usuario",
+      "createdTime": "26-Oct-2026 17:00:00",
+      "droppable": false,
+      "data": {
+        "id": "a0000000-0000-4000-8000-000000000010",
+        "method": "post",
+        "name": "Registrar usuario",
+        "url": "http://localhost:5080/api/auth/register",
+        "createdTime": "26-Oct-2026 17:00:00",
+        "treeNodeType": "request"
+      }
+    },
+    {
+      "id": "a0000000-0000-4000-8000-000000000011",
+      "parent": "a0000000-0000-4000-8000-000000000002",
+      "text": "Iniciar sesión",
+      "createdTime": "26-Oct-2026 17:00:00",
+      "droppable": false,
+      "data": {
+        "id": "a0000000-0000-4000-8000-000000000011",
+        "method": "post",
+        "name": "Iniciar sesión",
+        "url": "http://localhost:5080/api/auth/login",
+        "createdTime": "26-Oct-2026 17:00:00",
+        "treeNodeType": "request"
+      }
+    },
+    {
+      "id": "a0000000-0000-4000-8000-000000000012",
+      "parent": "a0000000-0000-4000-8000-000000000002",
+      "text": "Perfil autenticado",
+      "createdTime": "26-Oct-2026 17:00:00",
+      "droppable": false,
+      "data": {
+        "id": "a0000000-0000-4000-8000-000000000012",
+        "method": "get",
+        "name": "Perfil autenticado",
+        "url": "http://localhost:5080/api/auth/me",
+        "createdTime": "26-Oct-2026 17:00:00",
+        "treeNodeType": "request"
+      }
+    },
+    {
+      "id": "a0000000-0000-4000-8000-000000000020",
+      "parent": "a0000000-0000-4000-8000-000000000003",
+      "text": "Listar categorías",
+      "createdTime": "26-Oct-2026 17:00:00",
+      "droppable": false,
+      "data": {
+        "id": "a0000000-0000-4000-8000-000000000020",
+        "method": "get",
+        "name": "Listar categorías",
+        "url": "http://localhost:5080/api/categorias",
+        "createdTime": "26-Oct-2026 17:00:00",
+        "treeNodeType": "request"
+      }
+    },
+    {
+      "id": "a0000000-0000-4000-8000-000000000021",
+      "parent": "a0000000-0000-4000-8000-000000000003",
+      "text": "Listar categorías activas",
+      "createdTime": "26-Oct-2026 17:00:00",
+      "droppable": false,
+      "data": {
+        "id": "a0000000-0000-4000-8000-000000000021",
+        "method": "get",
+        "name": "Listar categorías activas",
+        "url": "http://localhost:5080/api/categorias?activo=true",
+        "createdTime": "26-Oct-2026 17:00:00",
+        "treeNodeType": "request"
+      }
+    },
+    {
+      "id": "a0000000-0000-4000-8000-000000000022",
+      "parent": "a0000000-0000-4000-8000-000000000003",
+      "text": "Obtener categoría por id",
+      "createdTime": "26-Oct-2026 17:00:00",
+      "droppable": false,
+      "data": {
+        "id": "a0000000-0000-4000-8000-000000000022",
+        "method": "get",
+        "name": "Obtener categoría por id",
+        "url": "http://localhost:5080/api/categorias/1",
+        "createdTime": "26-Oct-2026 17:00:00",
+        "treeNodeType": "request"
+      }
+    },
+    {
+      "id": "a0000000-0000-4000-8000-000000000023",
+      "parent": "a0000000-0000-4000-8000-000000000003",
+      "text": "Crear categoría",
+      "createdTime": "26-Oct-2026 17:00:00",
+      "droppable": false,
+      "data": {
+        "id": "a0000000-0000-4000-8000-000000000023",
+        "method": "post",
+        "name": "Crear categoría",
+        "url": "http://localhost:5080/api/categorias",
+        "createdTime": "26-Oct-2026 17:00:00",
+        "treeNodeType": "request"
+      }
+    },
+    {
+      "id": "a0000000-0000-4000-8000-000000000024",
+      "parent": "a0000000-0000-4000-8000-000000000003",
+      "text": "Actualizar categoría",
+      "createdTime": "26-Oct-2026 17:00:00",
+      "droppable": false,
+      "data": {
+        "id": "a0000000-0000-4000-8000-000000000024",
+        "method": "put",
+        "name": "Actualizar categoría",
+        "url": "http://localhost:5080/api/categorias/1",
+        "createdTime": "26-Oct-2026 17:00:00",
+        "treeNodeType": "request"
+      }
+    },
+    {
+      "id": "a0000000-0000-4000-8000-000000000025",
+      "parent": "a0000000-0000-4000-8000-000000000003",
+      "text": "Eliminar categoría",
+      "createdTime": "26-Oct-2026 17:00:00",
+      "droppable": false,
+      "data": {
+        "id": "a0000000-0000-4000-8000-000000000025",
+        "method": "delete",
+        "name": "Eliminar categoría",
+        "url": "http://localhost:5080/api/categorias/4",
+        "createdTime": "26-Oct-2026 17:00:00",
+        "treeNodeType": "request"
+      }
+    },
+    {
+      "id": "a0000000-0000-4000-8000-000000000030",
+      "parent": "a0000000-0000-4000-8000-000000000004",
+      "text": "Listar productos (paginado)",
+      "createdTime": "26-Oct-2026 17:00:00",
+      "droppable": false,
+      "data": {
+        "id": "a0000000-0000-4000-8000-000000000030",
+        "method": "get",
+        "name": "Listar productos (paginado)",
+        "url": "http://localhost:5080/api/productos?page=1&pageSize=10&sortBy=nombre&sortDir=asc",
+        "createdTime": "26-Oct-2026 17:00:00",
+        "treeNodeType": "request"
+      }
+    },
+    {
+      "id": "a0000000-0000-4000-8000-000000000031",
+      "parent": "a0000000-0000-4000-8000-000000000004",
+      "text": "Buscar productos por texto",
+      "createdTime": "26-Oct-2026 17:00:00",
+      "droppable": false,
+      "data": {
+        "id": "a0000000-0000-4000-8000-000000000031",
+        "method": "get",
+        "name": "Buscar productos por texto",
+        "url": "http://localhost:5080/api/productos?search=laptop&page=1&pageSize=5",
+        "createdTime": "26-Oct-2026 17:00:00",
+        "treeNodeType": "request"
+      }
+    },
+    {
+      "id": "a0000000-0000-4000-8000-000000000032",
+      "parent": "a0000000-0000-4000-8000-000000000004",
+      "text": "Filtrar productos por categoría y precio",
+      "createdTime": "26-Oct-2026 17:00:00",
+      "droppable": false,
+      "data": {
+        "id": "a0000000-0000-4000-8000-000000000032",
+        "method": "get",
+        "name": "Filtrar productos por categoría y precio",
+        "url": "http://localhost:5080/api/productos?categoriaId=1&precioMin=100&precioMax=1000&sortBy=precio&sortDir=desc",
+        "createdTime": "26-Oct-2026 17:00:00",
+        "treeNodeType": "request"
+      }
+    },
+    {
+      "id": "a0000000-0000-4000-8000-000000000033",
+      "parent": "a0000000-0000-4000-8000-000000000004",
+      "text": "Obtener producto por id",
+      "createdTime": "26-Oct-2026 17:00:00",
+      "droppable": false,
+      "data": {
+        "id": "a0000000-0000-4000-8000-000000000033",
+        "method": "get",
+        "name": "Obtener producto por id",
+        "url": "http://localhost:5080/api/productos/1",
+        "createdTime": "26-Oct-2026 17:00:00",
+        "treeNodeType": "request"
+      }
+    },
+    {
+      "id": "a0000000-0000-4000-8000-000000000034",
+      "parent": "a0000000-0000-4000-8000-000000000004",
+      "text": "Crear producto",
+      "createdTime": "26-Oct-2026 17:00:00",
+      "droppable": false,
+      "data": {
+        "id": "a0000000-0000-4000-8000-000000000034",
+        "method": "post",
+        "name": "Crear producto",
+        "url": "http://localhost:5080/api/productos",
+        "createdTime": "26-Oct-2026 17:00:00",
+        "treeNodeType": "request"
+      }
+    },
+    {
+      "id": "a0000000-0000-4000-8000-000000000035",
+      "parent": "a0000000-0000-4000-8000-000000000004",
+      "text": "Actualizar producto",
+      "createdTime": "26-Oct-2026 17:00:00",
+      "droppable": false,
+      "data": {
+        "id": "a0000000-0000-4000-8000-000000000035",
+        "method": "put",
+        "name": "Actualizar producto",
+        "url": "http://localhost:5080/api/productos/1",
+        "createdTime": "26-Oct-2026 17:00:00",
+        "treeNodeType": "request"
+      }
+    },
+    {
+      "id": "a0000000-0000-4000-8000-000000000036",
+      "parent": "a0000000-0000-4000-8000-000000000004",
+      "text": "Eliminar producto",
+      "createdTime": "26-Oct-2026 17:00:00",
+      "droppable": false,
+      "data": {
+        "id": "a0000000-0000-4000-8000-000000000036",
+        "method": "delete",
+        "name": "Eliminar producto",
+        "url": "http://localhost:5080/api/productos/6",
+        "createdTime": "26-Oct-2026 17:00:00",
+        "treeNodeType": "request"
+      }
+    }
+  ],
+  "requests": [
+    {
+      "id": "a0000000-0000-4000-8000-000000000010",
+      "url": "http://localhost:5080/api/auth/register",
+      "name": "Registrar usuario",
+      "createdTime": "26-Oct-2026 17:00:00",
+      "method": "post",
+      "params": [
+        {
+          "isChecked": false,
+          "key": "",
+          "value": ""
+        }
+      ],
+      "pathParams": [],
+      "auth": {
+        "authType": "noauth",
+        "userName": "",
+        "password": "",
+        "addTo": "queryparams",
+        "showPwd": false,
+        "tokenPrefix": "",
+        "aws": {
+          "service": "",
+          "region": "",
+          "accessKey": "",
+          "secretAccessKey": "",
+          "sessionToken": ""
+        }
+      },
+      "headers": [
+        {
+          "key": "Accept",
+          "value": "application/json",
+          "isChecked": true
+        },
+        {
+          "key": "Content-Type",
+          "value": "application/json",
+          "isChecked": true,
+          "isFixed": false
+        },
+        {
+          "key": "",
+          "value": "",
+          "isChecked": false
+        }
+      ],
+      "body": {
+        "bodyType": "raw",
+        "formdata": [
+          {
+            "isChecked": false,
+            "key": "",
+            "value": ""
+          }
+        ],
+        "urlencoded": [
+          {
+            "isChecked": false,
+            "key": "",
+            "value": ""
+          }
+        ],
+        "raw": {
+          "data": "{\n    \"nombreCompleto\": \"Usuario de Prueba\",\n    \"email\": \"usuario@tecwebii.com\",\n    \"password\": \"Usuario123*\",\n    \"confirmPassword\": \"Usuario123*\"\n}",
+          "lang": "json"
+        },
+        "binary": {
+          "fileName": "",
+          "data": {},
+          "contentTypeOption": "manual"
+        },
+        "graphql": {
+          "query": "",
+          "variables": ""
+        }
+      },
+      "tests": [
+        {
+          "parameter": "",
+          "action": "",
+          "expectedValue": ""
+        }
+      ],
+      "setvar": [
+        {
+          "parameter": "",
+          "key": "",
+          "variableName": ""
+        }
+      ],
+      "notes": "Crea un usuario y devuelve un token JWT. Cambie el correo si ya está registrado.",
+      "selectedEnvironmentId": ""
+    },
+    {
+      "id": "a0000000-0000-4000-8000-000000000011",
+      "url": "http://localhost:5080/api/auth/login",
+      "name": "Iniciar sesión",
+      "createdTime": "26-Oct-2026 17:00:00",
+      "method": "post",
+      "params": [
+        {
+          "isChecked": false,
+          "key": "",
+          "value": ""
+        }
+      ],
+      "pathParams": [],
+      "auth": {
+        "authType": "noauth",
+        "userName": "",
+        "password": "",
+        "addTo": "queryparams",
+        "showPwd": false,
+        "tokenPrefix": "",
+        "aws": {
+          "service": "",
+          "region": "",
+          "accessKey": "",
+          "secretAccessKey": "",
+          "sessionToken": ""
+        }
+      },
+      "headers": [
+        {
+          "key": "Accept",
+          "value": "application/json",
+          "isChecked": true
+        },
+        {
+          "key": "Content-Type",
+          "value": "application/json",
+          "isChecked": true,
+          "isFixed": false
+        },
+        {
+          "key": "",
+          "value": "",
+          "isChecked": false
+        }
+      ],
+      "body": {
+        "bodyType": "raw",
+        "formdata": [
+          {
+            "isChecked": false,
+            "key": "",
+            "value": ""
+          }
+        ],
+        "urlencoded": [
+          {
+            "isChecked": false,
+            "key": "",
+            "value": ""
+          }
+        ],
+        "raw": {
+          "data": "{\n    \"email\": \"admin@tecwebii.com\",\n    \"password\": \"Admin123*\"\n}",
+          "lang": "json"
+        },
+        "binary": {
+          "fileName": "",
+          "data": {},
+          "contentTypeOption": "manual"
+        },
+        "graphql": {
+          "query": "",
+          "variables": ""
+        }
+      },
+      "tests": [
+        {
+          "parameter": "",
+          "action": "",
+          "expectedValue": ""
+        }
+      ],
+      "setvar": [
+        {
+          "parameter": "",
+          "key": "",
+          "variableName": ""
+        }
+      ],
+      "notes": "Copie el valor de data.token en la variable {{token}} de la colección para ejecutar las peticiones protegidas.",
+      "selectedEnvironmentId": ""
+    },
+    {
+      "id": "a0000000-0000-4000-8000-000000000012",
+      "url": "http://localhost:5080/api/auth/me",
+      "name": "Perfil autenticado",
+      "createdTime": "26-Oct-2026 17:00:00",
+      "method": "get",
+      "params": [
+        {
+          "isChecked": false,
+          "key": "",
+          "value": ""
+        }
+      ],
+      "pathParams": [],
+      "auth": {
+        "authType": "bearertoken",
+        "userName": "",
+        "password": "{{token}}",
+        "addTo": "queryparams",
+        "showPwd": false,
+        "tokenPrefix": "Bearer",
+        "aws": {
+          "service": "",
+          "region": "",
+          "accessKey": "",
+          "secretAccessKey": "",
+          "sessionToken": ""
+        }
+      },
+      "headers": [
+        {
+          "key": "Accept",
+          "value": "application/json",
+          "isChecked": true
+        },
+        {
+          "key": "",
+          "value": "",
+          "isChecked": false
+        }
+      ],
+      "body": {
+        "bodyType": "none",
+        "formdata": [
+          {
+            "isChecked": false,
+            "key": "",
+            "value": ""
+          }
+        ],
+        "urlencoded": [
+          {
+            "isChecked": false,
+            "key": "",
+            "value": ""
+          }
+        ],
+        "raw": {
+          "data": "",
+          "lang": "json"
+        },
+        "binary": {
+          "fileName": "",
+          "data": {},
+          "contentTypeOption": "manual"
+        },
+        "graphql": {
+          "query": "",
+          "variables": ""
+        }
+      },
+      "tests": [
+        {
+          "parameter": "",
+          "action": "",
+          "expectedValue": ""
+        }
+      ],
+      "setvar": [
+        {
+          "parameter": "",
+          "key": "",
+          "variableName": ""
+        }
+      ],
+      "notes": "Requiere el token JWT en la cabecera Authorization.",
+      "selectedEnvironmentId": ""
+    },
+    {
+      "id": "a0000000-0000-4000-8000-000000000020",
+      "url": "http://localhost:5080/api/categorias",
+      "name": "Listar categorías",
+      "createdTime": "26-Oct-2026 17:00:00",
+      "method": "get",
+      "params": [
+        {
+          "isChecked": false,
+          "key": "",
+          "value": ""
+        }
+      ],
+      "pathParams": [],
+      "auth": {
+        "authType": "noauth",
+        "userName": "",
+        "password": "",
+        "addTo": "queryparams",
+        "showPwd": false,
+        "tokenPrefix": "",
+        "aws": {
+          "service": "",
+          "region": "",
+          "accessKey": "",
+          "secretAccessKey": "",
+          "sessionToken": ""
+        }
+      },
+      "headers": [
+        {
+          "key": "Accept",
+          "value": "application/json",
+          "isChecked": true
+        },
+        {
+          "key": "",
+          "value": "",
+          "isChecked": false
+        }
+      ],
+      "body": {
+        "bodyType": "none",
+        "formdata": [
+          {
+            "isChecked": false,
+            "key": "",
+            "value": ""
+          }
+        ],
+        "urlencoded": [
+          {
+            "isChecked": false,
+            "key": "",
+            "value": ""
+          }
+        ],
+        "raw": {
+          "data": "",
+          "lang": "json"
+        },
+        "binary": {
+          "fileName": "",
+          "data": {},
+          "contentTypeOption": "manual"
+        },
+        "graphql": {
+          "query": "",
+          "variables": ""
+        }
+      },
+      "tests": [
+        {
+          "parameter": "",
+          "action": "",
+          "expectedValue": ""
+        }
+      ],
+      "setvar": [
+        {
+          "parameter": "",
+          "key": "",
+          "variableName": ""
+        }
+      ],
+      "notes": "",
+      "selectedEnvironmentId": ""
+    },
+    {
+      "id": "a0000000-0000-4000-8000-000000000021",
+      "url": "http://localhost:5080/api/categorias?activo=true",
+      "name": "Listar categorías activas",
+      "createdTime": "26-Oct-2026 17:00:00",
+      "method": "get",
+      "params": [
+        {
+          "isChecked": false,
+          "key": "",
+          "value": ""
+        }
+      ],
+      "pathParams": [],
+      "auth": {
+        "authType": "noauth",
+        "userName": "",
+        "password": "",
+        "addTo": "queryparams",
+        "showPwd": false,
+        "tokenPrefix": "",
+        "aws": {
+          "service": "",
+          "region": "",
+          "accessKey": "",
+          "secretAccessKey": "",
+          "sessionToken": ""
+        }
+      },
+      "headers": [
+        {
+          "key": "Accept",
+          "value": "application/json",
+          "isChecked": true
+        },
+        {
+          "key": "",
+          "value": "",
+          "isChecked": false
+        }
+      ],
+      "body": {
+        "bodyType": "none",
+        "formdata": [
+          {
+            "isChecked": false,
+            "key": "",
+            "value": ""
+          }
+        ],
+        "urlencoded": [
+          {
+            "isChecked": false,
+            "key": "",
+            "value": ""
+          }
+        ],
+        "raw": {
+          "data": "",
+          "lang": "json"
+        },
+        "binary": {
+          "fileName": "",
+          "data": {},
+          "contentTypeOption": "manual"
+        },
+        "graphql": {
+          "query": "",
+          "variables": ""
+        }
+      },
+      "tests": [
+        {
+          "parameter": "",
+          "action": "",
+          "expectedValue": ""
+        }
+      ],
+      "setvar": [
+        {
+          "parameter": "",
+          "key": "",
+          "variableName": ""
+        }
+      ],
+      "notes": "",
+      "selectedEnvironmentId": ""
+    },
+    {
+      "id": "a0000000-0000-4000-8000-000000000022",
+      "url": "http://localhost:5080/api/categorias/1",
+      "name": "Obtener categoría por id",
+      "createdTime": "26-Oct-2026 17:00:00",
+      "method": "get",
+      "params": [
+        {
+          "isChecked": false,
+          "key": "",
+          "value": ""
+        }
+      ],
+      "pathParams": [],
+      "auth": {
+        "authType": "noauth",
+        "userName": "",
+        "password": "",
+        "addTo": "queryparams",
+        "showPwd": false,
+        "tokenPrefix": "",
+        "aws": {
+          "service": "",
+          "region": "",
+          "accessKey": "",
+          "secretAccessKey": "",
+          "sessionToken": ""
+        }
+      },
+      "headers": [
+        {
+          "key": "Accept",
+          "value": "application/json",
+          "isChecked": true
+        },
+        {
+          "key": "",
+          "value": "",
+          "isChecked": false
+        }
+      ],
+      "body": {
+        "bodyType": "none",
+        "formdata": [
+          {
+            "isChecked": false,
+            "key": "",
+            "value": ""
+          }
+        ],
+        "urlencoded": [
+          {
+            "isChecked": false,
+            "key": "",
+            "value": ""
+          }
+        ],
+        "raw": {
+          "data": "",
+          "lang": "json"
+        },
+        "binary": {
+          "fileName": "",
+          "data": {},
+          "contentTypeOption": "manual"
+        },
+        "graphql": {
+          "query": "",
+          "variables": ""
+        }
+      },
+      "tests": [
+        {
+          "parameter": "",
+          "action": "",
+          "expectedValue": ""
+        }
+      ],
+      "setvar": [
+        {
+          "parameter": "",
+          "key": "",
+          "variableName": ""
+        }
+      ],
+      "notes": "",
+      "selectedEnvironmentId": ""
+    },
+    {
+      "id": "a0000000-0000-4000-8000-000000000023",
+      "url": "http://localhost:5080/api/categorias",
+      "name": "Crear categoría",
+      "createdTime": "26-Oct-2026 17:00:00",
+      "method": "post",
+      "params": [
+        {
+          "isChecked": false,
+          "key": "",
+          "value": ""
+        }
+      ],
+      "pathParams": [],
+      "auth": {
+        "authType": "bearertoken",
+        "userName": "",
+        "password": "{{token}}",
+        "addTo": "queryparams",
+        "showPwd": false,
+        "tokenPrefix": "Bearer",
+        "aws": {
+          "service": "",
+          "region": "",
+          "accessKey": "",
+          "secretAccessKey": "",
+          "sessionToken": ""
+        }
+      },
+      "headers": [
+        {
+          "key": "Accept",
+          "value": "application/json",
+          "isChecked": true
+        },
+        {
+          "key": "Content-Type",
+          "value": "application/json",
+          "isChecked": true,
+          "isFixed": false
+        },
+        {
+          "key": "",
+          "value": "",
+          "isChecked": false
+        }
+      ],
+      "body": {
+        "bodyType": "raw",
+        "formdata": [
+          {
+            "isChecked": false,
+            "key": "",
+            "value": ""
+          }
+        ],
+        "urlencoded": [
+          {
+            "isChecked": false,
+            "key": "",
+            "value": ""
+          }
+        ],
+        "raw": {
+          "data": "{\n    \"nombre\": \"Oficina\",\n    \"descripcion\": \"Artículos de oficina y papelería.\",\n    \"activo\": true\n}",
+          "lang": "json"
+        },
+        "binary": {
+          "fileName": "",
+          "data": {},
+          "contentTypeOption": "manual"
+        },
+        "graphql": {
+          "query": "",
+          "variables": ""
+        }
+      },
+      "tests": [
+        {
+          "parameter": "",
+          "action": "",
+          "expectedValue": ""
+        }
+      ],
+      "setvar": [
+        {
+          "parameter": "",
+          "key": "",
+          "variableName": ""
+        }
+      ],
+      "notes": "",
+      "selectedEnvironmentId": ""
+    },
+    {
+      "id": "a0000000-0000-4000-8000-000000000024",
+      "url": "http://localhost:5080/api/categorias/1",
+      "name": "Actualizar categoría",
+      "createdTime": "26-Oct-2026 17:00:00",
+      "method": "put",
+      "params": [
+        {
+          "isChecked": false,
+          "key": "",
+          "value": ""
+        }
+      ],
+      "pathParams": [],
+      "auth": {
+        "authType": "bearertoken",
+        "userName": "",
+        "password": "{{token}}",
+        "addTo": "queryparams",
+        "showPwd": false,
+        "tokenPrefix": "Bearer",
+        "aws": {
+          "service": "",
+          "region": "",
+          "accessKey": "",
+          "secretAccessKey": "",
+          "sessionToken": ""
+        }
+      },
+      "headers": [
+        {
+          "key": "Accept",
+          "value": "application/json",
+          "isChecked": true
+        },
+        {
+          "key": "Content-Type",
+          "value": "application/json",
+          "isChecked": true,
+          "isFixed": false
+        },
+        {
+          "key": "",
+          "value": "",
+          "isChecked": false
+        }
+      ],
+      "body": {
+        "bodyType": "raw",
+        "formdata": [
+          {
+            "isChecked": false,
+            "key": "",
+            "value": ""
+          }
+        ],
+        "urlencoded": [
+          {
+            "isChecked": false,
+            "key": "",
+            "value": ""
+          }
+        ],
+        "raw": {
+          "data": "{\n    \"nombre\": \"Laptops\",\n    \"descripcion\": \"Equipos portátiles actualizados.\",\n    \"activo\": true\n}",
+          "lang": "json"
+        },
+        "binary": {
+          "fileName": "",
+          "data": {},
+          "contentTypeOption": "manual"
+        },
+        "graphql": {
+          "query": "",
+          "variables": ""
+        }
+      },
+      "tests": [
+        {
+          "parameter": "",
+          "action": "",
+          "expectedValue": ""
+        }
+      ],
+      "setvar": [
+        {
+          "parameter": "",
+          "key": "",
+          "variableName": ""
+        }
+      ],
+      "notes": "",
+      "selectedEnvironmentId": ""
+    },
+    {
+      "id": "a0000000-0000-4000-8000-000000000025",
+      "url": "http://localhost:5080/api/categorias/4",
+      "name": "Eliminar categoría",
+      "createdTime": "26-Oct-2026 17:00:00",
+      "method": "delete",
+      "params": [
+        {
+          "isChecked": false,
+          "key": "",
+          "value": ""
+        }
+      ],
+      "pathParams": [],
+      "auth": {
+        "authType": "bearertoken",
+        "userName": "",
+        "password": "{{token}}",
+        "addTo": "queryparams",
+        "showPwd": false,
+        "tokenPrefix": "Bearer",
+        "aws": {
+          "service": "",
+          "region": "",
+          "accessKey": "",
+          "secretAccessKey": "",
+          "sessionToken": ""
+        }
+      },
+      "headers": [
+        {
+          "key": "Accept",
+          "value": "application/json",
+          "isChecked": true
+        },
+        {
+          "key": "",
+          "value": "",
+          "isChecked": false
+        }
+      ],
+      "body": {
+        "bodyType": "none",
+        "formdata": [
+          {
+            "isChecked": false,
+            "key": "",
+            "value": ""
+          }
+        ],
+        "urlencoded": [
+          {
+            "isChecked": false,
+            "key": "",
+            "value": ""
+          }
+        ],
+        "raw": {
+          "data": "",
+          "lang": "json"
+        },
+        "binary": {
+          "fileName": "",
+          "data": {},
+          "contentTypeOption": "manual"
+        },
+        "graphql": {
+          "query": "",
+          "variables": ""
+        }
+      },
+      "tests": [
+        {
+          "parameter": "",
+          "action": "",
+          "expectedValue": ""
+        }
+      ],
+      "setvar": [
+        {
+          "parameter": "",
+          "key": "",
+          "variableName": ""
+        }
+      ],
+      "notes": "Solo se puede eliminar una categoría sin productos asociados.",
+      "selectedEnvironmentId": ""
+    },
+    {
+      "id": "a0000000-0000-4000-8000-000000000030",
+      "url": "http://localhost:5080/api/productos?page=1&pageSize=10&sortBy=nombre&sortDir=asc",
+      "name": "Listar productos (paginado)",
+      "createdTime": "26-Oct-2026 17:00:00",
+      "method": "get",
+      "params": [
+        {
+          "isChecked": false,
+          "key": "",
+          "value": ""
+        }
+      ],
+      "pathParams": [],
+      "auth": {
+        "authType": "noauth",
+        "userName": "",
+        "password": "",
+        "addTo": "queryparams",
+        "showPwd": false,
+        "tokenPrefix": "",
+        "aws": {
+          "service": "",
+          "region": "",
+          "accessKey": "",
+          "secretAccessKey": "",
+          "sessionToken": ""
+        }
+      },
+      "headers": [
+        {
+          "key": "Accept",
+          "value": "application/json",
+          "isChecked": true
+        },
+        {
+          "key": "",
+          "value": "",
+          "isChecked": false
+        }
+      ],
+      "body": {
+        "bodyType": "none",
+        "formdata": [
+          {
+            "isChecked": false,
+            "key": "",
+            "value": ""
+          }
+        ],
+        "urlencoded": [
+          {
+            "isChecked": false,
+            "key": "",
+            "value": ""
+          }
+        ],
+        "raw": {
+          "data": "",
+          "lang": "json"
+        },
+        "binary": {
+          "fileName": "",
+          "data": {},
+          "contentTypeOption": "manual"
+        },
+        "graphql": {
+          "query": "",
+          "variables": ""
+        }
+      },
+      "tests": [
+        {
+          "parameter": "",
+          "action": "",
+          "expectedValue": ""
+        }
+      ],
+      "setvar": [
+        {
+          "parameter": "",
+          "key": "",
+          "variableName": ""
+        }
+      ],
+      "notes": "Filtros: search, categoriaId, activo, precioMin, precioMax, page, pageSize, sortBy, sortDir.",
+      "selectedEnvironmentId": ""
+    },
+    {
+      "id": "a0000000-0000-4000-8000-000000000031",
+      "url": "http://localhost:5080/api/productos?search=laptop&page=1&pageSize=5",
+      "name": "Buscar productos por texto",
+      "createdTime": "26-Oct-2026 17:00:00",
+      "method": "get",
+      "params": [
+        {
+          "isChecked": false,
+          "key": "",
+          "value": ""
+        }
+      ],
+      "pathParams": [],
+      "auth": {
+        "authType": "noauth",
+        "userName": "",
+        "password": "",
+        "addTo": "queryparams",
+        "showPwd": false,
+        "tokenPrefix": "",
+        "aws": {
+          "service": "",
+          "region": "",
+          "accessKey": "",
+          "secretAccessKey": "",
+          "sessionToken": ""
+        }
+      },
+      "headers": [
+        {
+          "key": "Accept",
+          "value": "application/json",
+          "isChecked": true
+        },
+        {
+          "key": "",
+          "value": "",
+          "isChecked": false
+        }
+      ],
+      "body": {
+        "bodyType": "none",
+        "formdata": [
+          {
+            "isChecked": false,
+            "key": "",
+            "value": ""
+          }
+        ],
+        "urlencoded": [
+          {
+            "isChecked": false,
+            "key": "",
+            "value": ""
+          }
+        ],
+        "raw": {
+          "data": "",
+          "lang": "json"
+        },
+        "binary": {
+          "fileName": "",
+          "data": {},
+          "contentTypeOption": "manual"
+        },
+        "graphql": {
+          "query": "",
+          "variables": ""
+        }
+      },
+      "tests": [
+        {
+          "parameter": "",
+          "action": "",
+          "expectedValue": ""
+        }
+      ],
+      "setvar": [
+        {
+          "parameter": "",
+          "key": "",
+          "variableName": ""
+        }
+      ],
+      "notes": "",
+      "selectedEnvironmentId": ""
+    },
+    {
+      "id": "a0000000-0000-4000-8000-000000000032",
+      "url": "http://localhost:5080/api/productos?categoriaId=1&precioMin=100&precioMax=1000&sortBy=precio&sortDir=desc",
+      "name": "Filtrar productos por categoría y precio",
+      "createdTime": "26-Oct-2026 17:00:00",
+      "method": "get",
+      "params": [
+        {
+          "isChecked": false,
+          "key": "",
+          "value": ""
+        }
+      ],
+      "pathParams": [],
+      "auth": {
+        "authType": "noauth",
+        "userName": "",
+        "password": "",
+        "addTo": "queryparams",
+        "showPwd": false,
+        "tokenPrefix": "",
+        "aws": {
+          "service": "",
+          "region": "",
+          "accessKey": "",
+          "secretAccessKey": "",
+          "sessionToken": ""
+        }
+      },
+      "headers": [
+        {
+          "key": "Accept",
+          "value": "application/json",
+          "isChecked": true
+        },
+        {
+          "key": "",
+          "value": "",
+          "isChecked": false
+        }
+      ],
+      "body": {
+        "bodyType": "none",
+        "formdata": [
+          {
+            "isChecked": false,
+            "key": "",
+            "value": ""
+          }
+        ],
+        "urlencoded": [
+          {
+            "isChecked": false,
+            "key": "",
+            "value": ""
+          }
+        ],
+        "raw": {
+          "data": "",
+          "lang": "json"
+        },
+        "binary": {
+          "fileName": "",
+          "data": {},
+          "contentTypeOption": "manual"
+        },
+        "graphql": {
+          "query": "",
+          "variables": ""
+        }
+      },
+      "tests": [
+        {
+          "parameter": "",
+          "action": "",
+          "expectedValue": ""
+        }
+      ],
+      "setvar": [
+        {
+          "parameter": "",
+          "key": "",
+          "variableName": ""
+        }
+      ],
+      "notes": "",
+      "selectedEnvironmentId": ""
+    },
+    {
+      "id": "a0000000-0000-4000-8000-000000000033",
+      "url": "http://localhost:5080/api/productos/1",
+      "name": "Obtener producto por id",
+      "createdTime": "26-Oct-2026 17:00:00",
+      "method": "get",
+      "params": [
+        {
+          "isChecked": false,
+          "key": "",
+          "value": ""
+        }
+      ],
+      "pathParams": [],
+      "auth": {
+        "authType": "noauth",
+        "userName": "",
+        "password": "",
+        "addTo": "queryparams",
+        "showPwd": false,
+        "tokenPrefix": "",
+        "aws": {
+          "service": "",
+          "region": "",
+          "accessKey": "",
+          "secretAccessKey": "",
+          "sessionToken": ""
+        }
+      },
+      "headers": [
+        {
+          "key": "Accept",
+          "value": "application/json",
+          "isChecked": true
+        },
+        {
+          "key": "",
+          "value": "",
+          "isChecked": false
+        }
+      ],
+      "body": {
+        "bodyType": "none",
+        "formdata": [
+          {
+            "isChecked": false,
+            "key": "",
+            "value": ""
+          }
+        ],
+        "urlencoded": [
+          {
+            "isChecked": false,
+            "key": "",
+            "value": ""
+          }
+        ],
+        "raw": {
+          "data": "",
+          "lang": "json"
+        },
+        "binary": {
+          "fileName": "",
+          "data": {},
+          "contentTypeOption": "manual"
+        },
+        "graphql": {
+          "query": "",
+          "variables": ""
+        }
+      },
+      "tests": [
+        {
+          "parameter": "",
+          "action": "",
+          "expectedValue": ""
+        }
+      ],
+      "setvar": [
+        {
+          "parameter": "",
+          "key": "",
+          "variableName": ""
+        }
+      ],
+      "notes": "",
+      "selectedEnvironmentId": ""
+    },
+    {
+      "id": "a0000000-0000-4000-8000-000000000034",
+      "url": "http://localhost:5080/api/productos",
+      "name": "Crear producto",
+      "createdTime": "26-Oct-2026 17:00:00",
+      "method": "post",
+      "params": [
+        {
+          "isChecked": false,
+          "key": "",
+          "value": ""
+        }
+      ],
+      "pathParams": [],
+      "auth": {
+        "authType": "bearertoken",
+        "userName": "",
+        "password": "{{token}}",
+        "addTo": "queryparams",
+        "showPwd": false,
+        "tokenPrefix": "Bearer",
+        "aws": {
+          "service": "",
+          "region": "",
+          "accessKey": "",
+          "secretAccessKey": "",
+          "sessionToken": ""
+        }
+      },
+      "headers": [
+        {
+          "key": "Accept",
+          "value": "application/json",
+          "isChecked": true
+        },
+        {
+          "key": "Content-Type",
+          "value": "application/json",
+          "isChecked": true,
+          "isFixed": false
+        },
+        {
+          "key": "",
+          "value": "",
+          "isChecked": false
+        }
+      ],
+      "body": {
+        "bodyType": "raw",
+        "formdata": [
+          {
+            "isChecked": false,
+            "key": "",
+            "value": ""
+          }
+        ],
+        "urlencoded": [
+          {
+            "isChecked": false,
+            "key": "",
+            "value": ""
+          }
+        ],
+        "raw": {
+          "data": "{\n    \"nombre\": \"Monitor LED 24 pulgadas\",\n    \"descripcion\": \"Resolución Full HD, panel IPS.\",\n    \"codigo\": \"MON-001\",\n    \"precio\": 159.99,\n    \"stock\": 15,\n    \"categoriaId\": 2,\n    \"activo\": true\n}",
+          "lang": "json"
+        },
+        "binary": {
+          "fileName": "",
+          "data": {},
+          "contentTypeOption": "manual"
+        },
+        "graphql": {
+          "query": "",
+          "variables": ""
+        }
+      },
+      "tests": [
+        {
+          "parameter": "",
+          "action": "",
+          "expectedValue": ""
+        }
+      ],
+      "setvar": [
+        {
+          "parameter": "",
+          "key": "",
+          "variableName": ""
+        }
+      ],
+      "notes": "",
+      "selectedEnvironmentId": ""
+    },
+    {
+      "id": "a0000000-0000-4000-8000-000000000035",
+      "url": "http://localhost:5080/api/productos/1",
+      "name": "Actualizar producto",
+      "createdTime": "26-Oct-2026 17:00:00",
+      "method": "put",
+      "params": [
+        {
+          "isChecked": false,
+          "key": "",
+          "value": ""
+        }
+      ],
+      "pathParams": [],
+      "auth": {
+        "authType": "bearertoken",
+        "userName": "",
+        "password": "{{token}}",
+        "addTo": "queryparams",
+        "showPwd": false,
+        "tokenPrefix": "Bearer",
+        "aws": {
+          "service": "",
+          "region": "",
+          "accessKey": "",
+          "secretAccessKey": "",
+          "sessionToken": ""
+        }
+      },
+      "headers": [
+        {
+          "key": "Accept",
+          "value": "application/json",
+          "isChecked": true
+        },
+        {
+          "key": "Content-Type",
+          "value": "application/json",
+          "isChecked": true,
+          "isFixed": false
+        },
+        {
+          "key": "",
+          "value": "",
+          "isChecked": false
+        }
+      ],
+      "body": {
+        "bodyType": "raw",
+        "formdata": [
+          {
+            "isChecked": false,
+            "key": "",
+            "value": ""
+          }
+        ],
+        "urlencoded": [
+          {
+            "isChecked": false,
+            "key": "",
+            "value": ""
+          }
+        ],
+        "raw": {
+          "data": "{\n    \"nombre\": \"Laptop Lenovo ThinkPad E14 Gen 5\",\n    \"descripcion\": \"Ryzen 5, 16 GB RAM, SSD 512 GB.\",\n    \"codigo\": \"LAP-001\",\n    \"precio\": 949.99,\n    \"stock\": 10,\n    \"categoriaId\": 1,\n    \"activo\": true\n}",
+          "lang": "json"
+        },
+        "binary": {
+          "fileName": "",
+          "data": {},
+          "contentTypeOption": "manual"
+        },
+        "graphql": {
+          "query": "",
+          "variables": ""
+        }
+      },
+      "tests": [
+        {
+          "parameter": "",
+          "action": "",
+          "expectedValue": ""
+        }
+      ],
+      "setvar": [
+        {
+          "parameter": "",
+          "key": "",
+          "variableName": ""
+        }
+      ],
+      "notes": "",
+      "selectedEnvironmentId": ""
+    },
+    {
+      "id": "a0000000-0000-4000-8000-000000000036",
+      "url": "http://localhost:5080/api/productos/6",
+      "name": "Eliminar producto",
+      "createdTime": "26-Oct-2026 17:00:00",
+      "method": "delete",
+      "params": [
+        {
+          "isChecked": false,
+          "key": "",
+          "value": ""
+        }
+      ],
+      "pathParams": [],
+      "auth": {
+        "authType": "bearertoken",
+        "userName": "",
+        "password": "{{token}}",
+        "addTo": "queryparams",
+        "showPwd": false,
+        "tokenPrefix": "Bearer",
+        "aws": {
+          "service": "",
+          "region": "",
+          "accessKey": "",
+          "secretAccessKey": "",
+          "sessionToken": ""
+        }
+      },
+      "headers": [
+        {
+          "key": "Accept",
+          "value": "application/json",
+          "isChecked": true
+        },
+        {
+          "key": "",
+          "value": "",
+          "isChecked": false
+        }
+      ],
+      "body": {
+        "bodyType": "none",
+        "formdata": [
+          {
+            "isChecked": false,
+            "key": "",
+            "value": ""
+          }
+        ],
+        "urlencoded": [
+          {
+            "isChecked": false,
+            "key": "",
+            "value": ""
+          }
+        ],
+        "raw": {
+          "data": "",
+          "lang": "json"
+        },
+        "binary": {
+          "fileName": "",
+          "data": {},
+          "contentTypeOption": "manual"
+        },
+        "graphql": {
+          "query": "",
+          "variables": ""
+        }
+      },
+      "tests": [
+        {
+          "parameter": "",
+          "action": "",
+          "expectedValue": ""
+        }
+      ],
+      "setvar": [
+        {
+          "parameter": "",
+          "key": "",
+          "variableName": ""
+        }
+      ],
+      "notes": "",
+      "selectedEnvironmentId": ""
+    }
+  ]
+}

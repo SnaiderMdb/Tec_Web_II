@@ -1,0 +1,35 @@
+@host = http://localhost:5080
+
+### Iniciar sesión
+POST {{host}}/api/auth/login
+Content-Type: application/json
+
+{
+  "email": "admin@tecwebii.com",
+  "password": "Admin123*"
+}
+
+### Perfil autenticado (reemplace el token)
+GET {{host}}/api/auth/me
+Authorization: Bearer {{token}}
+
+### Listar categorías
+GET {{host}}/api/categorias
+
+### Listar productos paginados
+GET {{host}}/api/productos?page=1&pageSize=10&sortBy=precio&sortDir=desc
+
+### Crear producto
+POST {{host}}/api/productos
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+{
+  "nombre": "Monitor LED 24 pulgadas",
+  "descripcion": "Resolución Full HD, panel IPS.",
+  "codigo": "MON-001",
+  "precio": 159.99,
+  "stock": 15,
+  "categoriaId": 2,
+  "activo": true
+}
